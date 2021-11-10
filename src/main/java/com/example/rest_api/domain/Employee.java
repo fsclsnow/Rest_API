@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Table(name = "Employee")
 @Entity
@@ -36,13 +34,6 @@ public class Employee {
 
     public String getGender() {
         return gender;
-    }
-
-    public Employee(String id, String fname, String lname, String gender) {
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-        this.gender = gender;
     }
 
     @Override

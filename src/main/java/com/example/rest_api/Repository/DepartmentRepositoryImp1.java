@@ -1,5 +1,6 @@
 package com.example.rest_api.Repository;
 
+import com.example.rest_api.Exception.ExceptionHandler;
 import com.example.rest_api.domain.Department;
 import com.example.rest_api.domain.DepartmentDTO;
 import org.springframework.data.jpa.repository.Query;
@@ -21,9 +22,19 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
     }
 
     @Override
-    public DepartmentDTO getDeparmentById(String id) {
+    public DepartmentDTO getDepartmentById(String id) {
         Department d = (Department) em.createQuery("select d from Department d where d.id = 'id' ").getSingleResult();
         return new DepartmentDTO(d);
     }
 
+    @Override
+    public boolean save(Department d) {
+        try {
+            em.createQuery("UPDATE Department d SET d.name = :name, d.id = :id ");
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

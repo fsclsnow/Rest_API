@@ -1,5 +1,6 @@
 package com.example.rest_api.Service;
 
+import com.example.rest_api.Exception.ExceptionHandler;
 import com.example.rest_api.Repository.DepartmentRepository;
 import com.example.rest_api.Repository.EmployeeRepository;
 import com.example.rest_api.domain.DepartmentDTO;
@@ -30,8 +31,8 @@ public class EmployeeServiceImp implements EmployeeService{
     }
 
     @Override
-    public void save(Employee e) {
-
+    public boolean save(Employee e) throws ExceptionHandler {
+        return er.save(e);
     }
 }
 

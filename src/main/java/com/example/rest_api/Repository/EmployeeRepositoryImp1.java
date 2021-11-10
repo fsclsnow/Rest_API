@@ -1,5 +1,6 @@
 package com.example.rest_api.Repository;
 
+import com.example.rest_api.Exception.ExceptionHandler;
 import com.example.rest_api.domain.Department;
 import com.example.rest_api.domain.Employee;
 import com.example.rest_api.domain.EmployeeDTO;
@@ -24,5 +25,16 @@ public class EmployeeRepositoryImp1 implements EmployeeRepository{
     public EmployeeDTO getEmployeeById(String id) {
         Employee e = (Employee)em.createQuery("select e from Employee e where e.id = 'id'").getSingleResult();
         return new EmployeeDTO(e);
+    }
+
+    @Override
+    public boolean save(Employee e) {
+        try{
+            em.createQuery("UPDATE Employee e SET e.fname = :fname, e.gender = :gender, e.lname = :lname, e.id = :id");
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

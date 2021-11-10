@@ -21,22 +21,22 @@ public class DepartmentController {
 
     @GetMapping("/department")
     public ResponseEntity<List<Department>> getAllDepartment(@RequestParam String id) {
-        return new ResponseEntity<List<Department>>(ds.getAllDepartment(), HttpStatus.OK);
+        return new ResponseEntity<>(ds.getAllDepartment(), HttpStatus.OK);
     }
 
     @GetMapping("/department/{id}")
     public ResponseEntity<DepartmentDTO> getDepartmentById(@PathVariable String id) {
-        return new ResponseEntity<DepartmentDTO>(ds.getDepartmentById(id), HttpStatus.OK);
+        return new ResponseEntity<>(ds.getDepartmentById(id), HttpStatus.OK);
     }
 
     @PostMapping("/employee")
-    public ResponseEntity<?> createDepartment(@RequestBody Department d) {
+    public ResponseEntity<?> createDepartment(@RequestBody Department d) throws com.example.rest_api.Exception.errorResponse {
         return new ResponseEntity<Object>(ds.save(d), HttpStatus.OK);
     }
 
-    @ExceptionHandler (Exception.class)
-    public ResponseEntity<?> errorResponse(){
-        return null;
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> errorResponse(Exception e) {
+        return new ResponseEntity<Object>(errorResponse(e), HttpStatus.BAD_REQUEST);
     }
 }
 

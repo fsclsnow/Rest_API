@@ -1,5 +1,6 @@
 package com.example.rest_api.REST;
 
+import com.example.rest_api.Exception.errorResponse;
 import com.example.rest_api.domain.Employee;
 import com.example.rest_api.Service.EmployeeServiceImp;
 import com.example.rest_api.domain.EmployeeDTO;
@@ -21,22 +22,22 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public ResponseEntity<List<Employee>> getAllEmployee(@RequestParam String id){
-        return new ResponsEntitiy<>(es.getAllEmployee(), HttpStatus.OK);
+        return new ResponseEntity<>(es.getAllEmployee(), HttpStatus.OK);
     }
 
     @GetMapping("/employee/{id}")
-    public ResponseEntity<List<EmployeeDTO>> getEmployeeById(@PathVariable String id){
-        return new ResponsEntitiy<>(es.getEmployeeById(id), HttpStatus.OK);
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable String id){
+        return new ResponseEntity<>(es.getEmployeeById(id), HttpStatus.OK);
     }
 
     @PostMapping("/employee")
-    public ResponseEntity<List<EmployeeDTO>> createEmployee(@RequestBody Employee e){
-        return new ResponsEntitiy<>(es.save(e), HttpStatus.OK);
+    public ResponseEntity<?> createEmployee(@RequestBody Employee e) throws com.example.rest_api.Exception.errorResponse {
+        return new ResponseEntity<Object>(es.save(e), HttpStatus.OK);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> errorResponse() {
-        return null;
+    public ResponseEntity<?> errorResponse(Exception e) {
+        return new ResponseEntity<Object>(errorResponse(e), HttpStatus.BAD_REQUEST);
     }
 }
 

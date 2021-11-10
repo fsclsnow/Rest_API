@@ -2,10 +2,7 @@ package com.example.rest_api.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Department")
@@ -21,13 +18,12 @@ public class Department {
     @Column(name = "name")
     private String name;
 
-    public Department(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override
