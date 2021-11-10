@@ -8,6 +8,7 @@ import java.util.List;
 public interface DepartmentRepository {
     List<Department> getAllDepartment();
     DepartmentDTO getDeparmentById(String id);
+
 }
 
 

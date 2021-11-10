@@ -25,4 +25,5 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
         Department d = (Department) em.createQuery("select d from Department d where d.id = 'id' ").getSingleResult();
         return new DepartmentDTO(d);
     }
+
 }
