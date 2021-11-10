@@ -33,7 +33,7 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
             em.createQuery("UPDATE Department d SET d.name = :name, d.id = :id ");
             return true;
         } catch (Exception e){
-            e.printStackTrace();
+            new errorResponse("Create failed");
             return false;
         }
     }

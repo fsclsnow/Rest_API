@@ -33,7 +33,7 @@ public class EmployeeRepositoryImp1 implements EmployeeRepository{
             em.createQuery("UPDATE Employee e SET e.fname = :fname, e.gender = :gender, e.lname = :lname, e.id = :id");
             return true;
         } catch (Exception ex){
-            ex.printStackTrace();
+            new errorResponse("Create failed");
             return false;
         }
     }
