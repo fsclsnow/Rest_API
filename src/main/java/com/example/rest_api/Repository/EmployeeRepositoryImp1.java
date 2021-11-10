@@ -1,6 +1,6 @@
 package com.example.rest_api.Repository;
 
-import com.example.rest_api.Exception.ExceptionHandler;
+import com.example.rest_api.Exception.errorResponse;
 import com.example.rest_api.domain.Department;
 import com.example.rest_api.domain.Employee;
 import com.example.rest_api.domain.EmployeeDTO;

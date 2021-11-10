@@ -1,6 +1,5 @@
-package com.example.rest_api.REST;
+package com.example.rest_api.Controller;
 
-import com.example.rest_api.Exception.errorResponse;
 import com.example.rest_api.domain.Employee;
 import com.example.rest_api.Service.EmployeeServiceImp;
 import com.example.rest_api.domain.EmployeeDTO;

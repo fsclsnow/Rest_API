@@ -1,4 +1,4 @@
-package com.example.rest_api.REST;
+package com.example.rest_api.Controller;
 
 import com.example.rest_api.domain.Department;
 import com.example.rest_api.domain.DepartmentDTO;
