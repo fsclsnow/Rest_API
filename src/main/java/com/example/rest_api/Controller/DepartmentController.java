@@ -20,7 +20,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/department")
-    public ResponseEntity<List<Department>> getAllDepartment(@RequestParam String id) {
+    public ResponseEntity<List<DepartmentDTO>> getAllDepartment(@RequestParam String id) {
         return new ResponseEntity<>(ds.getAllDepartment(), HttpStatus.OK);
     }
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -16,9 +17,13 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
     private EntityManager em;
 
     @Override
-    public List<Department> getAllDepartment() {
+    public List<DepartmentDTO> getAllDepartment() {
         List<Department> list = em.createQuery("select d from Department d join fetch Employee e").getResultList();
-        return list;
+        List<DepartmentDTO> res = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++){
+            res.set(i, new DepartmentDTO((list.get(i))));
+        }
+        return res;
     }
 
     @Override

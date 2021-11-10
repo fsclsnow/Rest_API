@@ -7,7 +7,7 @@ import com.example.rest_api.domain.EmployeeDTO;
 import java.util.List;
 
 public interface EmployeeService {
-    List<Employee> getAllEmployee();
+    List<EmployeeDTO> getAllEmployee();
     EmployeeDTO getEmployeeById(String id);
     boolean save(Employee e) throws errorResponse;
 }

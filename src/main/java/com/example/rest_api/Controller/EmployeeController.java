@@ -20,7 +20,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee")
-    public ResponseEntity<List<Employee>> getAllEmployee(@RequestParam String id){
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployee(@RequestParam String id){
         return new ResponseEntity<>(es.getAllEmployee(), HttpStatus.OK);
     }
 

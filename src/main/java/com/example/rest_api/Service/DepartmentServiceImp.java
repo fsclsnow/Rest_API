@@ -20,7 +20,7 @@ public class DepartmentServiceImp implements DepartmentService{
     }
 
     @Override
-    public List<Department> getAllDepartment() {
+    public List<DepartmentDTO> getAllDepartment() {
         return dr.getAllDepartment();
     }
 

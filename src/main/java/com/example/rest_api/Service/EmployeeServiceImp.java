@@ -21,7 +21,7 @@ public class EmployeeServiceImp implements EmployeeService{
     }
 
     @Override
-    public List<Employee> getAllEmployee() {
+    public List<EmployeeDTO> getAllEmployee() {
         return er.getAllEmployee();
     }
 

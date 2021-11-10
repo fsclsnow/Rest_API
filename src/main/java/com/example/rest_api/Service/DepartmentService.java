@@ -8,7 +8,7 @@ import com.example.rest_api.domain.DepartmentDTO;
 import java.util.List;
 
 public interface DepartmentService {
-    List<Department> getAllDepartment();
+    List<DepartmentDTO> getAllDepartment();
     DepartmentDTO getDepartmentById(String id);
     boolean save(Department d) throws errorResponse;
 }
