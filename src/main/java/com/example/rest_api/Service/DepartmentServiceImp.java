@@ -2,12 +2,11 @@ package com.example.rest_api.Service;
 
 import com.example.rest_api.Exception.errorResponse;
 import com.example.rest_api.Repository.DepartmentRepository;
-import com.example.rest_api.domain.Department;
-import com.example.rest_api.domain.DepartmentDTO;
+import com.example.rest_api.Domain.Entity.Department;
+import com.example.rest_api.Domain.DepartmentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 @Service
@@ -30,7 +29,7 @@ public class DepartmentServiceImp implements DepartmentService{
     }
 
     @Override
-    public boolean save(Department d) throws errorResponse {
+    public String save(Department d) throws errorResponse {
         return dr.save(d);
     }
 }

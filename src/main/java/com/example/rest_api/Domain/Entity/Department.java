@@ -1,8 +1,9 @@
-package com.example.rest_api.domain;
+package com.example.rest_api.Domain.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Department")
@@ -17,6 +18,10 @@ public class Department {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "Department")
+    private Set<Employee> employees;
+
 
     public String getName() {
         return name;

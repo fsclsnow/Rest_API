@@ -1,9 +1,8 @@
 package com.example.rest_api.Repository;
 
 import com.example.rest_api.Exception.errorResponse;
-import com.example.rest_api.domain.Department;
-import com.example.rest_api.domain.DepartmentDTO;
-import org.springframework.data.jpa.repository.Query;
+import com.example.rest_api.Domain.Entity.Department;
+import com.example.rest_api.Domain.DepartmentDTO;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,7 +17,7 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
 
     @Override
     public List<DepartmentDTO> getAllDepartment() {
-        List<Department> list = em.createQuery("select d from Department d join fetch Employee e").getResultList();
+        List<Department> list = em.createQuery("select d from Department d join fetch Employee e on e.department_id = d.id ").getResultList();
         List<DepartmentDTO> res = new ArrayList<>();
         for (int i = 0; i < list.size(); i++){
             res.set(i, new DepartmentDTO((list.get(i))));
@@ -33,13 +32,13 @@ public class DepartmentRepositoryImp1 implements DepartmentRepository{
     }
 
     @Override
-    public boolean save(Department d) {
+    public String save(Department d) {
         try {
             em.createQuery("UPDATE Department d SET d.name = :name, d.id = :id ");
-            return true;
+            return d.getId();
         } catch (Exception e){
             new errorResponse("Create failed");
-            return false;
+            return "";
         }
     }
 }

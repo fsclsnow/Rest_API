@@ -1,5 +1,6 @@
-package com.example.rest_api.domain;
+package com.example.rest_api.Domain;
 
+import com.example.rest_api.Domain.Entity.Employee;
 import lombok.Data;
 
 @Data

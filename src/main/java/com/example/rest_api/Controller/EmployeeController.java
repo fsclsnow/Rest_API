@@ -1,8 +1,8 @@
 package com.example.rest_api.Controller;
 
-import com.example.rest_api.domain.Employee;
+import com.example.rest_api.Domain.Entity.Employee;
 import com.example.rest_api.Service.EmployeeServiceImp;
-import com.example.rest_api.domain.EmployeeDTO;
+import com.example.rest_api.Domain.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

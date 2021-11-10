@@ -1,7 +1,7 @@
 package com.example.rest_api.Controller;
 
-import com.example.rest_api.domain.Department;
-import com.example.rest_api.domain.DepartmentDTO;
+import com.example.rest_api.Domain.Entity.Department;
+import com.example.rest_api.Domain.DepartmentDTO;
 import com.example.rest_api.Service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

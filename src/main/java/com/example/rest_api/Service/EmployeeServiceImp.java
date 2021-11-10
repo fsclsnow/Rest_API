@@ -1,11 +1,9 @@
 package com.example.rest_api.Service;
 
 import com.example.rest_api.Exception.errorResponse;
-import com.example.rest_api.Repository.DepartmentRepository;
 import com.example.rest_api.Repository.EmployeeRepository;
-import com.example.rest_api.domain.DepartmentDTO;
-import com.example.rest_api.domain.Employee;
-import com.example.rest_api.domain.EmployeeDTO;
+import com.example.rest_api.Domain.Entity.Employee;
+import com.example.rest_api.Domain.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +29,7 @@ public class EmployeeServiceImp implements EmployeeService{
     }
 
     @Override
-    public boolean save(Employee e) throws errorResponse {
+    public String save(Employee e) throws errorResponse {
         return er.save(e);
     }
 }

@@ -1,10 +1,8 @@
 package com.example.rest_api.Repository;
 
 import com.example.rest_api.Exception.errorResponse;
-import com.example.rest_api.domain.Department;
-import com.example.rest_api.domain.DepartmentDTO;
-import com.example.rest_api.domain.Employee;
-import com.example.rest_api.domain.EmployeeDTO;
+import com.example.rest_api.Domain.Entity.Employee;
+import com.example.rest_api.Domain.EmployeeDTO;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -34,13 +32,13 @@ public class EmployeeRepositoryImp1 implements EmployeeRepository{
     }
 
     @Override
-    public boolean save(Employee e) {
+    public String save(Employee e) {
         try{
             em.createQuery("UPDATE Employee e SET e.fname = :fname, e.gender = :gender, e.lname = :lname, e.id = :id");
-            return true;
+            return e.getId();
         } catch (Exception ex){
             new errorResponse("Create failed");
-            return false;
+            return "";
         }
     }
 }

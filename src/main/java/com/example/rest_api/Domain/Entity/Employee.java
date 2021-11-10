@@ -1,4 +1,4 @@
-package com.example.rest_api.domain;
+package com.example.rest_api.Domain.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +23,13 @@ public class Employee {
 
     @Column(name = "gender")
     private String gender;
+
+    @Column(name = "department_id")
+    private String department_id;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department d;
 
     public String getFname() {
         return fname;
